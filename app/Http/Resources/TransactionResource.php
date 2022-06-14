@@ -22,7 +22,9 @@ class TransactionResource extends JsonResource
             'total_price' => $this->total_price,
             'status' => $this->status,
             'payment_method' => $this->payment_method,
+            'payment_code' => $this->payment_code,
             'expired_at' => Carbon::parse($this->expired_at)->format('d-m-Y H:i'),
+            'ticket_schedule' => json_decode($this->ticket_schedules),
             'event' => new EventResource($this->event),
         ];
     }

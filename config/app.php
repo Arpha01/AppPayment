@@ -212,6 +212,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'ErrorHandler' => App\Helpers\ErrorHandler::class,
         'PaymentDataBuilder' => App\Helpers\PaymentDataBuilder::class,
+        'PaymentStatusTranslator' => App\Helpers\PaymentStatusTranslator::class,
     ])->toArray(),
 
 ];

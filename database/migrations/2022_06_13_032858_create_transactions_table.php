@@ -21,7 +21,9 @@ return new class extends Migration
             $table->enum('status', ['pending', 'paid', 'cancelled']);
             $table->enum('payment_method', ['bri', 'bca', 'bni', 'indomaret', 'alfamart', 'gopay']);
             $table->dateTime('expired_at')->nullable();
+            $table->text('payment_code')->nullable();
             $table->foreignId('user_id')->constrained('users');
+            $table->json('ticket_schedules');
             $table->timestamps();
         });
     }

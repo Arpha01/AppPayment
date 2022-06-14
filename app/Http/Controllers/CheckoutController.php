@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Resources\TransactionResource;
 use App\Models\Event;
 use App\Models\Transaction;
-Use Carbon\Carbon;
+use Carbon\Carbon;
+use App\Enums\PaymentMethod;
+use App\Http\Requests\TransactionRequest;
 use ErrorHandler;
 use PaymentDataBuilder;
 use Illuminate\Http\Request;
@@ -19,51 +21,34 @@ class CheckoutController extends Controller
         $this->middleware('auth:sanctum');
     }
 
-    public function index() 
+    public function createPayment(TransactionRequest $request) 
     {
-        $transactions = Transaction::where('user_id', auth('sanctum')->user()->id)->orderBy('created_at')->get();
-
-        return TransactionResource::collection($transactions);
-    }
-
-    public function createPayment(Request $request) 
-    {
-        $validator = Validator::make($request->all(), [
-            'event_id' => 'required|exists:App\Models\Event,id',
-            'amount' => 'required|numeric',
-            'payment_method' => 'required|in:bri,bca,bni,indomaret,alfamart,gopay'
-        ], [
-            'event_id.required' => 'Event belum dipilih',
-            'event_id.exists' => 'Event tidak ditemukan',
-            'amount.required' => 'Jumlah tiket belum diisi',
-            'amount.numeric' => 'Jumlah tiket tidak valid',
-            'payment_method.required' => 'Metode pembayaran belum dipilih',
-            'payment_method.in' => 'Metode pembayaran tidak ditemukan'
-        ]);
-
-        if($validator->fails()) {
-            return ErrorHandler::errorResource($validator->errors()->all(), 400);
-        }
-
         $event = Event::select('price')->find($request->event_id);
 
         $transaction = new Transaction();
         $transaction->id = Transaction::generateOrderID($request->event_id);
         $transaction->event_id = $request->event_id;
         $transaction->amount = $request->amount;
-        $transaction->total_price = $event->price * $request->amount;
         $transaction->status = 'pending';
         $transaction->payment_method = $request->payment_method;
         $transaction->user_id = auth('sanctum')->user()->id;
         $transaction->expired_at = Carbon::now()->addDays(1)->format('Y-m-d H:i');
+        $transaction->ticket_schedules = json_encode($request->ticket_schedules);
+
+        // Count number of schedules selected 
+        if(is_array($request->ticket_schedules)) {
+            $countSchedules = count($request->ticket_schedules);
+            $transaction->total_price = ($event->price * $request->amount) * $countSchedules;
+        } else {
+            $transaction->total_price = $event->price * $request->amount;
+        }
 
         if($transaction->save()) {
             $transaction->load('event');
             $transaction->load('user');
     
-            $data =  PaymentDataBuilder::build($transaction);
+            $data = PaymentDataBuilder::build($transaction);
             
-
             $createPayment = Http::withBasicAuth('SB-Mid-server-W-skb6JH2OtcZF60aS6nMlxI', '')
             ->acceptJson()
             ->post('https://api.sandbox.midtrans.com/v2/charge', $data);
@@ -72,7 +57,21 @@ class CheckoutController extends Controller
                 $transaction->delete();
 
                 return ErrorHandler::errorResource('Gagal membuat pembayaran', 400);
+            }
 
+            $response = json_decode($createPayment);
+
+            // If payment using indomaret or alfamart then add payment code to transaction
+            // If using bank transfer (va) add va number to payment code
+
+            if($request->payment_method == PaymentMethod::INDOMARET 
+            || $request->payment_method == PaymentMethod::ALFAMART) {
+                $transaction->payment_code = $response->payment_code;
+                $transaction->save();
+            } else if ($request->payment_method == PaymentMethod::BCA || $request->payment_method == PaymentMethod::BNI 
+            || $request->payment_method == PaymentMethod::BRI) {
+                $transaction->payment_code = $response->va_numbers[0]->va_number;
+                $transaction->save();
             }
 
             return (new TransactionResource($transaction))
