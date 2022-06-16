@@ -31,6 +31,10 @@ You're done, the API will run on localhost:8000/api
 ### Class Diagram
 ![image](https://user-images.githubusercontent.com/11209553/174081989-9958cff8-2bec-40cc-a779-66a1574d5aa0.png)
 
+### PhpMyAdmin Designer
+![image](https://user-images.githubusercontent.com/11209553/174083007-0738424b-81a4-40d7-9cb9-673fc75f4ee6.png)
+
+
 # Authentication
 ### Users
 There are 2 types of users, an organization user, and ordinary user
