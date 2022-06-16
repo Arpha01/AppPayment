@@ -48,6 +48,13 @@ Berikut adalah use case diagram untuk menggambarkan apa saja yang dapat dilakukk
 
 ![image](https://user-images.githubusercontent.com/11209553/174103610-7f6a975e-3894-4ea9-a8d2-1b31d7e1b4a0.png)
 
+### Kredensial
 
+Berikut adalah email dan password default untuk melakukan login pada API
+
+| Email                | Password         | Role            |
+|----------------------|------------------|:---------------:|
+|user@test.com         | test123          | User biasa      | 
+|kemendikbud@test.com  | test123          | User organisasi |
 
 
