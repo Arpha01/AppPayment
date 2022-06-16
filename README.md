@@ -29,11 +29,22 @@ You're done, the API will run on localhost:8000/api
 
 # Database Structure
 ### Class Diagram
-![image](https://user-images.githubusercontent.com/11209553/174081989-9958cff8-2bec-40cc-a779-66a1574d5aa0.png)
+![image](https://user-images.githubusercontent.com/11209553/174085557-32412b6e-87a2-4109-ba75-08261216d112.png)
 
 ### PhpMyAdmin Designer
-![image](https://user-images.githubusercontent.com/11209553/174083007-0738424b-81a4-40d7-9cb9-673fc75f4ee6.png)
+![image](https://user-images.githubusercontent.com/11209553/174084240-83e6c535-904e-4f54-96fb-ee85857f6c3d.png)
 
+### Database Specification
+1. Users Table
+   Table Name : users
+   Description : Store users data
+   Primary Key : id
+   
+   | Name      | Type     | Length | Description                      |
+   | --------- |----------|--------|:--------------------------------:|
+   | id        | bigint   | 20     | user unique primary key          |
+   | name      | varchar  | 255    | user name                        |
+   | email     | varchar  | 255    | user email for login             |
 
 # Authentication
 ### Users
