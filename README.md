@@ -27,6 +27,13 @@ AppPayment is a payment gateway implementation and integration built using Larav
 
 You're done, the API will run on localhost:8000/api
 
+# Database Structure
+### Class Diagram
+![image](https://user-images.githubusercontent.com/11209553/174081989-9958cff8-2bec-40cc-a779-66a1574d5aa0.png)
+
 # Authentication
 ### Users
 There are 2 types of users, an organization user, and ordinary user
+
+
+
