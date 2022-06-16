@@ -42,7 +42,12 @@ Ada dua tipe user pada API ini, diantaranya
 
 Pembeda dari dua user tersebut ada pada atribut **organization_id** dan **is_organization** pada tabel _users_. 
 
-Pada user oganisasi atribut _is_organization_ mengandung value true atau nilai 1, dan memiliki relasi dengan entitas **Organization**, dihubungkan dengan _foreign key organization_id_
+Pada user oganisasi, atribut _is_organization_ mengandung value true atau nilai 1, dan memiliki relasi dengan entitas **Organization**, dihubungkan dengan _foreign key organization_id_
+
+Berikut adalah use case diagram untuk menggambarkan apa saja yang dapat dilakukkan oleh masing-masing user.
+
+![image](https://user-images.githubusercontent.com/11209553/174103610-7f6a975e-3894-4ea9-a8d2-1b31d7e1b4a0.png)
+
 
 
 
