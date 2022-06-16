@@ -1,8 +1,8 @@
-### Hello 👋 welcome to my payment gateway repository.
+### Halo 👋 selamat datang di repository payment gateway saya.
 
-AppPayment is a payment gateway implementation and integration built using Laravel 9.
+AppPayment adalah sebuah implementasi dan integrasi yang dibangun menggunakan Laravel 9 dalam bentuk API.
 
-#### Tools used in the development
+#### Tools yang digunakan dalam pengembangan
 
 | Tools                                | Version       |
 | -------------                        |:-------------:|
@@ -14,27 +14,27 @@ AppPayment is a payment gateway implementation and integration built using Larav
 | Laragon                              | 5.0           |
 | Postman                              | -             | 
 
-# Installation
-* Clone this repository 
-* Extract files
-* Open command prompt or terminal, run `cd pathtodirectory`
-* In terminal run `composer install`
-* Rename .env.example file to .env
-* In the .env file replace DB_CONNECTION, DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, adjust it to your database configuration
-* In terminal run `php artisan migrate`
-* In terminal run `php artisan db:seed`
-* In terminal run `php artisan serve`
+# Instalasi
+* Klon Repository ini
+* Ekstrak file yang telah didownload
+* Jalankan terminal, dan arahkan terminal ke direktori ekstrak file menggunakan `cd pathtodirectory`
+* Dalam terminal jalankan `composer install`
+* Ubah nama file `.env.example` file ke `.env`
+* Edit file _.env_ pada `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_USERNAME`, `DB_PASSWORD` sesuaikan dengan konfigurasi database anda
+* Didalam terminal jalankan `php artisan migrate`
+* Lalu jalankan `php artisan db:seed` untuk mengisi database dengan data default 
+* Selanjutnya, dalam terminal jalankan `php artisan serve`
 
-You're done, the API will run on localhost:8000/api
+Selesai, API berjalan pada localhost:8000/api
 
-# Database Structure
+# Struktur Basis Data
 ### Class Diagram
 ![image](https://user-images.githubusercontent.com/11209553/174085557-32412b6e-87a2-4109-ba75-08261216d112.png)
 
 ### PhpMyAdmin Designer
 ![image](https://user-images.githubusercontent.com/11209553/174084240-83e6c535-904e-4f54-96fb-ee85857f6c3d.png)
 
-# Authentication
+# Autentikasi
 ### Users
 There are 2 types of users, an organization user, and ordinary user
 
