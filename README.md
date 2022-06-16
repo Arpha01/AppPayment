@@ -40,8 +40,9 @@ Ada dua tipe user pada API ini, diantaranya
 1. User biasa
 2. User organisasi
 
-Pembeda dari dua user tersebut ada pada atribut **organization_id** dan **is_organization** pada tabel _users_
-pada user oganisasi atribut is_organization mengandung value true atau nilai 1, dan memiliki relasi dengan entitas Organization, dihubungkan dengan foreign key organization_id
+Pembeda dari dua user tersebut ada pada atribut **organization_id** dan **is_organization** pada tabel _users_. 
+
+Pada user oganisasi atribut _is_organization_ mengandung value true atau nilai 1, dan memiliki relasi dengan entitas **Organization**, dihubungkan dengan _foreign key organization_id_
 
 
 
