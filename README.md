@@ -1,4 +1,4 @@
-### Halo 👋 selamat datang di repository payment gateway saya.
+### Halo 👋 Selamat Datang di Repository Payment Gateway Saya.
 
 AppPayment adalah sebuah implementasi dan integrasi yang dibangun menggunakan Laravel 9 dalam bentuk API.
 
@@ -36,7 +36,12 @@ Selesai, API berjalan pada localhost:8000/api
 
 # Autentikasi
 ### Users
-There are 2 types of users, an organization user, and ordinary user
+Ada dua tipe user pada API ini, diantaranya 
+1. User biasa
+2. User organisasi
+
+Pembeda dari dua user tersebut ada pada atribut **organization_id** dan **is_organization** pada tabel _users_
+pada user oganisasi atribut is_organization mengandung value true atau nilai 1, dan memiliki relasi dengan entitas Organization, dihubungkan dengan foreign key organization_id
 
 
 
