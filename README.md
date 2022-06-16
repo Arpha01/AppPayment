@@ -34,18 +34,6 @@ You're done, the API will run on localhost:8000/api
 ### PhpMyAdmin Designer
 ![image](https://user-images.githubusercontent.com/11209553/174084240-83e6c535-904e-4f54-96fb-ee85857f6c3d.png)
 
-### Database Specification
-1. Users Table
-   Table Name : users
-   Description : Store users data
-   Primary Key : id
-   
-   | Name      | Type     | Length | Description                      |
-   | --------- |----------|--------|:--------------------------------:|
-   | id        | bigint   | 20     | user unique primary key          |
-   | name      | varchar  | 255    | user name                        |
-   | email     | varchar  | 255    | user email for login             |
-
 # Authentication
 ### Users
 There are 2 types of users, an organization user, and ordinary user
