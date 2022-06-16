@@ -20,9 +20,13 @@ AppPayment is a payment gateway implementation and integration built using Larav
 * Open command prompt or terminal, run `cd pathtodirectory`
 * In terminal run `composer install`
 * Rename .env.example file to .env
-* In the .env file change DB_CONNECTION, DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD
+* In the .env file replace DB_CONNECTION, DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, adjust it to your database configuration
 * In terminal run `php artisan migrate`
 * In terminal run `php artisan db:seed`
 * In terminal run `php artisan serve`
 
 You're done, the API will run on localhost:8000/api
+
+# Authentication
+### Users
+There are 2 types of users, an organization user, and ordinary user
