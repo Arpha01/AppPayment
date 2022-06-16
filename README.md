@@ -53,8 +53,65 @@ Berikut adalah use case diagram untuk menggambarkan apa saja yang dapat dilakukk
 Berikut adalah email dan password default untuk melakukan login pada API
 
 | Email                | Password         | Role            |
-|----------------------|------------------|:---------------:|
+|----------------------|------------------|-----------------|
 |user@test.com         | test123          | User biasa      | 
 |kemendikbud@test.com  | test123          | User organisasi |
 
 
+
+# Uji Autentikasi
+### Login
+| Type  | Endpoint                        |
+|-------|---------------------------------|
+| POST  |localhost:8000/api/login         |
+
+Request Format (Body)
+| Name     | Description                     |
+|----------|---------------------------------|
+| email    | required                        |
+| password | required                        |
+
+Response 
+```
+{
+    "status": "success",
+    "message": "Login successfully",
+    "errors": null,
+    "content": {
+        "status_code": 200,
+        "access_token": "2|pyzsEI59uRqnKFe0NxVMJK9BZH2CnfnSNyy5uUNy",
+        "token_type": "Bearer"
+    }
+}
+```
+
+Example
+
+![image](https://user-images.githubusercontent.com/11209553/174108275-dc1c1b8e-9de3-4f6c-895f-399900147e21.png)
+
+### Logout
+| Type  | Endpoint                        |
+|-------|---------------------------------|
+| POST  | localhost:8000/api/logout       |
+
+Headers 
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer masukkantoken            |
+    
+Response 
+```
+{
+    "status": "success",
+    "message": "Logout successfully",
+    "errors": null,
+    "content": null
+}
+```
+    
+Example
+    
+![image](https://user-images.githubusercontent.com/11209553/174118590-9fd32ae7-7b68-4981-af9f-a28f69c78ee3.png)
+
+
+# Uji Kelola Event
