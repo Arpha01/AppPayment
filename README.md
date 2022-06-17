@@ -334,16 +334,16 @@ Berikut adalah bagian checkout tiket event
 ```
 {
     "data": {
-        "id": "order-5-3-1655450605",
+        "id": "order-6-3-1655451787",
         "event_id": "3",
         "amount": "1",
         "total_price": 311440,
         "status": "pending",
-        "payment_method": "alfamart",
-        "payment_code": "5037264694177285",
-        "expired_at": "18-06-2022 07:23",
+        "payment_method": "indomaret",
+        "payment_code": "926537065370",
+        "expired_at": "18-06-2022 07:43",
         "ticket_schedule": [
-            "1985-12-20"
+            "11-06-2022"
         ],
         "event": {
             "id": 3,
@@ -363,11 +363,14 @@ Berikut adalah bagian checkout tiket event
         }
     },
     "success": true,
-    "total": 5,
+    "total": 6,
     "code": 206
 }
-
 ```
+
+### Example
+![image](https://user-images.githubusercontent.com/11209553/174250895-0a54ed45-d460-48b2-a72c-f44a5f41e184.png)
+
 
 # Verifikasi atau Konfirmasi Pembayaran
 Sebelum melakukan konfirmasi atau verifikasi pembayaran ini, diharuskan terlebih dahulu untuk membayar atau menggunakan simulasi pembayaran yang disediakan oleh Midtrans sebagai berikut: 
@@ -382,8 +385,64 @@ Sebelum melakukan konfirmasi atau verifikasi pembayaran ini, diharuskan terlebih
 | BRI Virtual Account simulator | https://simulator.sandbox.midtrans.com/bri/va/index    |
 
 ### Cara penggunaan simulator
-Ikuti sesuai petunjuk yang tertera. Pada halaman simulator, dalam contoh ini saya menggunakan metode pembayaran Alfamart, pada payment code masukkan id yang didapat saat checkout, dalam format order-x-x-xxxxxx
+1. Ikuti sesuai petunjuk yang tertera. Pada halaman simulator, dalam contoh ini saya menggunakan metode pembayaran Alfamart, pada kolom payment code masukkan payment code yang didapat saat checkout.
+2. Lalu tekan tombol __Inquire__
+![image](https://user-images.githubusercontent.com/11209553/174251595-6333211a-c01a-4229-aced-661e7afd6bb8.png)
+3. Setelah itu akan muncul detail tiket event yang dibeli, klik tombol __Pay__
+![image](https://user-images.githubusercontent.com/11209553/174251824-a6623d98-b8e7-4c00-a9f3-8aa874fb76aa.png)
+4. Akan muncul message success transaction. lalu lakukkan konfirmasi pembayaran pada API
 
-![image](https://user-images.githubusercontent.com/11209553/174249509-b4848e69-14fb-4298-bfc3-956eb43c9bf4.png)
 
-Lalu tekan tombol __Inquire__
+
+| Type  | Endpoint                                |
+|-------|-----------------------------------------|
+| POST  |localhost:8000/api/payment/verify/{id}   |
+
+Ket : 
+{id} diisi dengan id yang didapat pada saat checkout, dalam format order-x-x-xxxxxx, contoh `localhost:8000/api/payment/verify/order-6-3-1655451787`
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
+
+### Sample Response 
+```
+{
+    "data": {
+        "id": "order-6-3-1655451787",
+        "event_id": 3,
+        "amount": 1,
+        "total_price": "311440",
+        "status": "paid",
+        "payment_method": "indomaret",
+        "payment_code": "926537065370",
+        "expired_at": "18-06-2022 07:43",
+        "ticket_schedule": [
+            "11-06-2022"
+        ],
+        "event": {
+            "id": 3,
+            "name": "Iste quos pariatur reprehenderit doloribus voluptas.",
+            "description": "Quo repellendus quisquam ut ut voluptatibus impedit. Vitae rem modi quos et sunt eaque. Et quos voluptatem est.",
+            "price": "Rp. 311.440",
+            "schedule": "\"[\\\"1995-05-23\\\",\\\"1985-12-20\\\"]\"",
+            "location": "Reidview",
+            "location_description": "Voluptatem doloremque.",
+            "rules": "Consequatur voluptates iusto quo rerum molestiae. Dolorum sit libero voluptatem ipsum. Corrupti voluptatem ut dolores fugiat dolorum reiciendis quia.",
+            "organization": {
+                "id": 1,
+                "name": "Kemendikbud RI",
+                "slug": "kemendikbud-ri",
+                "created_at": "14-06-2022"
+            }
+        }
+    },
+    "success": true,
+    "total": 6,
+    "code": 206
+}
+```
+
+Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ jika dalam kondisi sudah dibayar atau menggunakan simulator.
+
