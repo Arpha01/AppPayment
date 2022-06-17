@@ -8,7 +8,7 @@ AppPayment adalah sebuah implementasi dan integrasi yang dibangun menggunakan La
 | -------------                        |:-------------:|
 | Composer                             | 2.1.14        |
 | Midtrans core API (Payment gateway)  | -             |
-| Laravel 9.11                         | 9.11          |
+| Laravel                              | 9.11          |
 | PHP                                  | 8.0.2         |
 | Laravel Sanctum (Authentication)     | 2.15          |
 | Laragon                              | 5.0           |
