@@ -413,7 +413,7 @@ Sebelum melakukan konfirmasi atau verifikasi pembayaran ini, diharuskan terlebih
 | BRI Virtual Account simulator | https://simulator.sandbox.midtrans.com/bri/va/index    |
 
 ### Cara penggunaan simulator
-1. Ikuti sesuai petunjuk yang tertera. Pada halaman simulator, dalam contoh ini saya menggunakan metode pembayaran Alfamart, pada kolom payment code masukkan payment code yang didapat saat checkout.
+1. Ikuti sesuai petunjuk yang tertera. Pada halaman simulator, dalam contoh ini saya menggunakan metode pembayaran Indomaret, pada kolom payment code masukkan payment code yang didapat saat checkout.
 2. Lalu tekan tombol __Inquire__
 ![image](https://user-images.githubusercontent.com/11209553/174251595-6333211a-c01a-4229-aced-661e7afd6bb8.png)
 3. Setelah itu akan muncul detail tiket event yang dibeli, klik tombol __Pay__
