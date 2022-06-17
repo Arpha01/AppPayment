@@ -88,6 +88,7 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 
 ### Contoh
 Berikut screenshot contoh request login menggunakan aplikasi postman
+
 ![image](https://user-images.githubusercontent.com/11209553/174108275-dc1c1b8e-9de3-4f6c-895f-399900147e21.png)
 
 # Logout
@@ -113,7 +114,8 @@ Berikut adalah contoh response yang akan didapatkan jika logout berhasil, token 
 ```
     
 ### Example
-Berikut screenshot contoh request logout menggunakan aplikasi postman    
+Berikut screenshot contoh request logout menggunakan aplikasi postman 
+
 ![image](https://user-images.githubusercontent.com/11209553/174118590-9fd32ae7-7b68-4981-af9f-a28f69c78ee3.png)
 
 # Mendapatkan Daftar Event
@@ -189,6 +191,7 @@ Berikut adalah contoh response yang akan didapatkan jika request berhasil
 
 ### Example
 Berikut screenshot contoh request daftar event menggunakan aplikasi postman 
+
 ![image](https://user-images.githubusercontent.com/11209553/174245636-51c2df39-599b-492e-a188-233dfb9cac83.png)
 
 
@@ -242,6 +245,7 @@ Berikut adalah contoh response yang akan didapatkan jika event berhasil dibuat
 
 ### Example
 Berikut screenshot contoh request membuat event menggunakan aplikasi postman 
+
 ![image](https://user-images.githubusercontent.com/11209553/174242872-098adcb4-f1f5-442a-89ca-770cb2ebfe64.png)
 ![image](https://user-images.githubusercontent.com/11209553/174242938-442e5a02-e328-4d4c-a630-891480b134d5.png)
 
@@ -296,6 +300,7 @@ Berikut adalah contoh response yang akan didapatkan jika event berhasil diupdate
 
 ### Example
 Berikut screenshot contoh request mengedit event menggunakan aplikasi postman 
+
 ![image](https://user-images.githubusercontent.com/11209553/174245284-7bb3c1b5-72fb-44f5-b1dd-9f126a69b340.png)
 ![image](https://user-images.githubusercontent.com/11209553/174245349-58b78708-6a46-4f01-89d9-f27f6b324238.png)
 
@@ -321,6 +326,8 @@ Berikut adalah contoh response yang akan didapatkan jika event berhasil dihapus.
 ```
 
 ### Example
+Berikut adalah contoh response menghapus event menggunakan aplikasi postman.
+
 ![image](https://user-images.githubusercontent.com/11209553/174246157-19d029c5-3526-4f02-9b22-a7f2031e190f.png)
 
 
@@ -386,6 +393,8 @@ Berikut adalah contoh response yang akan didapatkan jika checkout tiket berhasil
 ```
 
 ### Example
+Berikut adalah contoh response checkout menggunakan aplikasi postman.
+
 ![image](https://user-images.githubusercontent.com/11209553/174250895-0a54ed45-d460-48b2-a72c-f44a5f41e184.png)
 
 
@@ -424,6 +433,8 @@ __id__ diisi dengan id yang didapat pada saat checkout, dalam format order-x-x-x
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response 
+Berikut adalah contoh response yang akan didapatkan jika verifikasi pembayaran sukses.
+
 ```
 {
     "data": {
@@ -464,10 +475,14 @@ __id__ diisi dengan id yang didapat pada saat checkout, dalam format order-x-x-x
 Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ jika dalam kondisi sudah dibayar atau menggunakan simulator.
 
 ### Example
+Berikut adalah contoh response verifikasi pembayaran menggunakan aplikasi postman.
+
 ![image](https://user-images.githubusercontent.com/11209553/174256187-67f79896-5fa5-4e5f-aa38-e286e3bb7697.png)
 
 
 # Melihat daftar transaksi
+Fitur ini digunakan untuk melihat daftar transaksi user yang sedang login
+
 | Type   | Endpoint                            |
 |--------|-------------------------------------|
 | GET    | localhost:8000/api/transaction      | 
@@ -478,6 +493,7 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response
+Berikut adalah contoh response yang akan didapatkan jika daftar transaksi berhasil didapat.
 ```
 {
     "data": [
@@ -541,13 +557,19 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
 }
 ```
 ### Example
+Berikut adalah contoh response daftar transaksi menggunakan aplikasi postman.
+
 ![image](https://user-images.githubusercontent.com/11209553/174256029-d810e3fe-cc81-45c8-8d41-91ee96aa8c0e.png)
 
 
 # Melihat detail transaksi
+User juga dapat melihat detail transaksi dengan id tertentu
+
 | Type   | Endpoint                                 |
 |--------|------------------------------------------|
 | GET    | localhost:8000/api/transaction/{id}      | 
+
+Keterangan : _id_ diisi dengan id transaksi, dalam format order-x-x-xxxx, contoh `localhost:8000/api/transaction/order-6-3-1655451787`
 
 ### Headers
 | Key            | Value                           |
@@ -555,6 +577,7 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response
+Berikut adalah contoh response yang akan didapatkan jika detail transaksi berhasil didapatkan.
 ```
 {
     "data": {
@@ -591,6 +614,10 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
     "code": 206
 }
 ```
+
+### Example
+Berikut adalah contoh response detail transaksi menggunakan aplikasi postman.
+
 ![image](https://user-images.githubusercontent.com/11209553/174255883-c83f1143-c0cf-4e05-b21d-ce4f16fc9f08.png)
 
 
@@ -605,6 +632,7 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response
+Berikut adalah contoh response yang akan didapatkan jika transaksi berhasil dibatalkan.
 ```
 {
     "data": {
@@ -642,4 +670,6 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
 }
 ```
 ### Example
+Berikut adalah contoh response membatalkan transaksi menggunakan aplikasi postman.
+
 ![image](https://user-images.githubusercontent.com/11209553/174255682-17b537b7-1738-4aed-9bcd-8aa496c5d804.png)
