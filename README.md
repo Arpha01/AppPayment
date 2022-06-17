@@ -392,6 +392,8 @@ Berikut adalah contoh response yang akan didapatkan jika checkout tiket berhasil
 }
 ```
 
+Setelah berhasil checkout, transaksi akan terbuat namun pembayaran masih dalam status __pending__
+
 ### Example
 Berikut adalah contoh response checkout menggunakan aplikasi postman.
 
