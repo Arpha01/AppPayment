@@ -13,7 +13,7 @@ class PaymentDataBuilder {
             ],
             'item_details' => [
                 'id' => $data->event_id,
-                'price' => $data->total_price,
+                'price' => $data->event->price,
                 'quantity' => $data->amount,
                 'name' => $data->event->name
             ],

@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->only('logout');        
+    }
+
     public function login(Request $request) 
     {
         $validator = Validator::make($request->all(), [

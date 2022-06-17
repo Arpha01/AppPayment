@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use PaymentStatusTranslator;
 use ErrorHandler;
 use App\Http\Resources\TransactionResource;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 

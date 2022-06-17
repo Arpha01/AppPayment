@@ -44,6 +44,7 @@ class CheckoutController extends Controller
         }
 
         if($transaction->save()) {
+
             $transaction->load('event');
             $transaction->load('user');
     
@@ -53,6 +54,7 @@ class CheckoutController extends Controller
             ->acceptJson()
             ->post('https://api.sandbox.midtrans.com/v2/charge', $data);
 
+
             if($createPayment->failed()) {
                 $transaction->delete();
 
@@ -61,7 +63,7 @@ class CheckoutController extends Controller
 
             $response = json_decode($createPayment);
 
-            // If payment using indomaret or alfamart then add payment code to transaction
+            // If payment using indomaret or alfamart then add payment code 
             // If using bank transfer (va) add va number to payment code
 
             if($request->payment_method == PaymentMethod::INDOMARET 

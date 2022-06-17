@@ -19,9 +19,10 @@ return new class extends Migration
             $table->longText('description');
             $table->string('price', 8);
             $table->json('schedule');
-            $table->string('location');
+            $table->string('location', 30);
             $table->string('location_description');
             $table->longText('rules');
+            $table->string('slug', 120);
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EventRequest;
 use App\Http\Resources\EventResource;
 use ErrorHandler;
+use Illuminate\Support\Str;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
@@ -60,6 +61,7 @@ class EventController extends Controller
         $event->schedule = json_encode($request->schedule);
         $event->location_description = $request->location_description;
         $event->rules = $request->rules;
+        $event->slug = Str::slug($request->name);
         $event->organization_id = auth('sanctum')->user()->organization_id;
 
         if($event->save()) {
@@ -104,6 +106,7 @@ class EventController extends Controller
         $event = Event::find($id);
 
         $event->name = $request->name;
+        $event->slug = Str::slug($request->name);
         $event->price = $request->price;
         $event->location = $request->location;
         $event->description = $request->description;
