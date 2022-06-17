@@ -96,7 +96,7 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 ### Headers 
 | Key            | Value                           |
 |----------------|---------------------------------|
-| Authorization  | Bearer masukkantoken            |
+| Authorization  | Bearer tokendisini              |
     
 ### Response 
 ```
@@ -111,3 +111,25 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 ### Example
     
 ![image](https://user-images.githubusercontent.com/11209553/174118590-9fd32ae7-7b68-4981-af9f-a28f69c78ee3.png)
+
+# Event
+### Membuat Event
+| Type  | Endpoint                         |
+|-------|----------------------------------|
+| POST  |localhost:8000/api/events         | 
+
+### Request Format (Body)
+| Name                 | Description                     |
+|----------------------|---------------------------------|
+| name                 | required, min 3                 |
+| description          | required, min 5                 |
+| price                | required, numeric               |
+| schedule[]           | required                        |
+| location             | required                        |
+| location_description | required                        |
+| rules                | required                        |
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
