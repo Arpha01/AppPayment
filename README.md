@@ -102,6 +102,7 @@ Setelah selesai melakukan aktivitas, user dapat melakukan logout
 | Authorization  | Bearer tokendisini              |
     
 ### Sample Response 
+Berikut adalah contoh response yang akan didapatkan jika logout berhasil, token yang digunakan sebelumnya tidak akan lagi berfungsi.
 ```
 {
     "status": "success",
@@ -127,6 +128,7 @@ User dapat melihat event apa saja yang terdapat pada sistem, berikut adalah cara
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response
+Berikut adalah contoh response yang akan didapatkan jika request berhasil
 ```
 {
     "data": [
@@ -213,6 +215,7 @@ Jika user yang digunakan adalah tipe __user organisasi__, user dapat membuat eve
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response
+Berikut adalah contoh response yang akan didapatkan jika event berhasil dibuat
 ```
 {
     "data": {
@@ -266,6 +269,7 @@ Jika user yang digunakan adalah tipe __user organisasi__, user dapat mengedit ev
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response
+Berikut adalah contoh response yang akan didapatkan jika event berhasil diupdate.
 ```
 {
     "data": {
@@ -308,6 +312,7 @@ Jika user yang digunakan adalah tipe __user organisasi__, user dapat menghapus e
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response 
+Berikut adalah contoh response yang akan didapatkan jika event berhasil dihapus.
 ```
 {
     "success": true,
@@ -327,6 +332,8 @@ Berikut adalah bagian checkout tiket event
 | POST  |localhost:8000/api/checkout          |
 
 ### Request Format (Body)
+Pada event_id diharuskan sesuai dengan id event yang ada.
+
 | Name                 | Description                                           |
 |----------------------|-------------------------------------------------------|
 | event_id             | required, numeric, exists                             |
@@ -340,6 +347,7 @@ Berikut adalah bagian checkout tiket event
 | Authorization  | Bearer tokendisini              |
 
 ### Sample Response 
+Berikut adalah contoh response yang akan didapatkan jika checkout tiket berhasil.
 ```
 {
     "data": {
