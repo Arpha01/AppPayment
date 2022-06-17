@@ -59,6 +59,8 @@ Berikut adalah email dan password default untuk melakukan login pada API
 
 
 # Login
+Sebelum menggunakan fitur lain, diharuskan login terlebih dahulu
+
 | Type  | Endpoint                        |
 |-------|---------------------------------|
 | POST  |localhost:8000/api/login         |
@@ -85,10 +87,11 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 ```
 
 ### Contoh
-
+Berikut screenshot contoh request login menggunakan aplikasi postman
 ![image](https://user-images.githubusercontent.com/11209553/174108275-dc1c1b8e-9de3-4f6c-895f-399900147e21.png)
 
 # Logout
+Setelah selesai melakukan aktivitas, user dapat melakukan logout
 | Type  | Endpoint                        |
 |-------|---------------------------------|
 | POST  | localhost:8000/api/logout       |
@@ -109,14 +112,14 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 ```
     
 ### Example
-    
+Berikut screenshot contoh request logout menggunakan aplikasi postman    
 ![image](https://user-images.githubusercontent.com/11209553/174118590-9fd32ae7-7b68-4981-af9f-a28f69c78ee3.png)
 
 # Mendapatkan Daftar Event
+User dapat melihat event apa saja yang terdapat pada sistem, berikut adalah cara mendapatkan daftar event, daftar event dilimit default 10 item menggunakan pagination
 | Type  | Endpoint                         |
 |-------|----------------------------------|
 | GET   |localhost:8000/api/events         | 
-
 
 ### Headers
 | Key            | Value                           |
@@ -183,10 +186,12 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 ```
 
 ### Example
+Berikut screenshot contoh request daftar event menggunakan aplikasi postman 
 ![image](https://user-images.githubusercontent.com/11209553/174245636-51c2df39-599b-492e-a188-233dfb9cac83.png)
 
 
 # Membuat Event
+Jika user yang digunakan adalah tipe __user organisasi__, user dapat membuat event baru, berikut adalah cara dan format membuat event baru
 | Type  | Endpoint                         |
 |-------|----------------------------------|
 | POST  |localhost:8000/api/events         | 
@@ -233,11 +238,13 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 ```
 
 ### Example
+Berikut screenshot contoh request membuat event menggunakan aplikasi postman 
 ![image](https://user-images.githubusercontent.com/11209553/174242872-098adcb4-f1f5-442a-89ca-770cb2ebfe64.png)
 ![image](https://user-images.githubusercontent.com/11209553/174242938-442e5a02-e328-4d4c-a630-891480b134d5.png)
 
 
 # Mengupdate Event 
+Jika user yang digunakan adalah tipe __user organisasi__, user dapat mengedit event, berikut adalah cara dan format mengedit event. Event yang akan diedit haruslah memiliki atribut _organization_id_ yang sama dengan user.
 | Type  | Endpoint                            |
 |-------|-------------------------------------|
 | PUT   |localhost:8000/api/events/{eventid}  | 
@@ -284,11 +291,13 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 ```
 
 ### Example
+Berikut screenshot contoh request mengedit event menggunakan aplikasi postman 
 ![image](https://user-images.githubusercontent.com/11209553/174245284-7bb3c1b5-72fb-44f5-b1dd-9f126a69b340.png)
 ![image](https://user-images.githubusercontent.com/11209553/174245349-58b78708-6a46-4f01-89d9-f27f6b324238.png)
 
 
 # Menghapus Event
+Jika user yang digunakan adalah tipe __user organisasi__, user dapat menghapus event, berikut adalah cara dan format mengedit event. Event yang akan dihapus haruslah memiliki atribut _organization_id_ yang sama dengan user.
 | Type   | Endpoint                            |
 |--------|-------------------------------------|
 | DELETE | localhost:8000/api/events/{eventid} | 
@@ -446,6 +455,10 @@ __id__ diisi dengan id yang didapat pada saat checkout, dalam format order-x-x-x
 
 Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ jika dalam kondisi sudah dibayar atau menggunakan simulator.
 
+### Example
+![image](https://user-images.githubusercontent.com/11209553/174256187-67f79896-5fa5-4e5f-aa38-e286e3bb7697.png)
+
+
 # Melihat daftar transaksi
 | Type   | Endpoint                            |
 |--------|-------------------------------------|
@@ -519,6 +532,9 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
     ]
 }
 ```
+### Example
+![image](https://user-images.githubusercontent.com/11209553/174256029-d810e3fe-cc81-45c8-8d41-91ee96aa8c0e.png)
+
 
 # Melihat detail transaksi
 | Type   | Endpoint                                 |
@@ -567,6 +583,8 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
     "code": 206
 }
 ```
+![image](https://user-images.githubusercontent.com/11209553/174255883-c83f1143-c0cf-4e05-b21d-ce4f16fc9f08.png)
+
 
 # Membatalkan transaksi
 | Type   | Endpoint                                 |
@@ -615,3 +633,5 @@ Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ 
     "code": 206
 }
 ```
+### Example
+![image](https://user-images.githubusercontent.com/11209553/174255682-17b537b7-1738-4aed-9bcd-8aa496c5d804.png)
