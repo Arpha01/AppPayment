@@ -399,7 +399,7 @@ Sebelum melakukan konfirmasi atau verifikasi pembayaran ini, diharuskan terlebih
 | POST  |localhost:8000/api/payment/verify/{id}   |
 
 Ket : 
-{id} diisi dengan id yang didapat pada saat checkout, dalam format order-x-x-xxxxxx, contoh `localhost:8000/api/payment/verify/order-6-3-1655451787`
+__id__ diisi dengan id yang didapat pada saat checkout, dalam format order-x-x-xxxxxx, contoh `localhost:8000/api/payment/verify/order-6-3-1655451787`
 
 ### Headers
 | Key            | Value                           |
@@ -446,3 +446,172 @@ Ket :
 
 Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ jika dalam kondisi sudah dibayar atau menggunakan simulator.
 
+# Melihat daftar transaksi
+| Type   | Endpoint                            |
+|--------|-------------------------------------|
+| GET    | localhost:8000/api/transaction      | 
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
+
+### Sample Response
+```
+{
+    "data": [
+        {
+            "id": "order-2-3-1655202009",
+            "event_id": 3,
+            "amount": 3,
+            "total_price": "934320",
+            "status": "pending",
+            "payment_method": "gopay",
+            "payment_code": null,
+            "expired_at": "15-06-2022 10:20",
+            "ticket_schedule": "\"[\\\"1995-05-23\\\",\\\"1985-12-20\\\"]\"",
+            "event": {
+                "id": 3,
+                "name": "Iste quos pariatur reprehenderit doloribus voluptas.",
+                "description": "Quo repellendus quisquam ut ut voluptatibus impedit. Vitae rem modi quos et sunt eaque. Et quos voluptatem est.",
+                "price": "Rp. 311.440",
+                "schedule": "\"[\\\"1995-05-23\\\",\\\"1985-12-20\\\"]\"",
+                "location": "Reidview",
+                "location_description": "Voluptatem doloremque.",
+                "rules": "Consequatur voluptates iusto quo rerum molestiae. Dolorum sit libero voluptatem ipsum. Corrupti voluptatem ut dolores fugiat dolorum reiciendis quia.",
+                "organization": {
+                    "id": 1,
+                    "name": "Kemendikbud RI",
+                    "slug": "kemendikbud-ri",
+                    "created_at": "14-06-2022"
+                }
+            }
+        },
+        {
+            "id": "order-6-3-1655451787",
+            "event_id": 3,
+            "amount": 1,
+            "total_price": "311440",
+            "status": "paid",
+            "payment_method": "indomaret",
+            "payment_code": "926537065370",
+            "expired_at": "18-06-2022 07:43",
+            "ticket_schedule": [
+                "11-06-2022"
+            ],
+            "event": {
+                "id": 3,
+                "name": "Iste quos pariatur reprehenderit doloribus voluptas.",
+                "description": "Quo repellendus quisquam ut ut voluptatibus impedit. Vitae rem modi quos et sunt eaque. Et quos voluptatem est.",
+                "price": "Rp. 311.440",
+                "schedule": "\"[\\\"1995-05-23\\\",\\\"1985-12-20\\\"]\"",
+                "location": "Reidview",
+                "location_description": "Voluptatem doloremque.",
+                "rules": "Consequatur voluptates iusto quo rerum molestiae. Dolorum sit libero voluptatem ipsum. Corrupti voluptatem ut dolores fugiat dolorum reiciendis quia.",
+                "organization": {
+                    "id": 1,
+                    "name": "Kemendikbud RI",
+                    "slug": "kemendikbud-ri",
+                    "created_at": "14-06-2022"
+                }
+            }
+        }
+    ]
+}
+```
+
+# Melihat detail transaksi
+| Type   | Endpoint                                 |
+|--------|------------------------------------------|
+| GET    | localhost:8000/api/transaction/{id}      | 
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
+
+### Sample Response
+```
+{
+    "data": {
+        "id": "order-6-3-1655451787",
+        "event_id": 3,
+        "amount": 1,
+        "total_price": "311440",
+        "status": "paid",
+        "payment_method": "indomaret",
+        "payment_code": "926537065370",
+        "expired_at": "18-06-2022 07:43",
+        "ticket_schedule": [
+            "11-06-2022"
+        ],
+        "event": {
+            "id": 3,
+            "name": "Iste quos pariatur reprehenderit doloribus voluptas.",
+            "description": "Quo repellendus quisquam ut ut voluptatibus impedit. Vitae rem modi quos et sunt eaque. Et quos voluptatem est.",
+            "price": "Rp. 311.440",
+            "schedule": "\"[\\\"1995-05-23\\\",\\\"1985-12-20\\\"]\"",
+            "location": "Reidview",
+            "location_description": "Voluptatem doloremque.",
+            "rules": "Consequatur voluptates iusto quo rerum molestiae. Dolorum sit libero voluptatem ipsum. Corrupti voluptatem ut dolores fugiat dolorum reiciendis quia.",
+            "organization": {
+                "id": 1,
+                "name": "Kemendikbud RI",
+                "slug": "kemendikbud-ri",
+                "created_at": "14-06-2022"
+            }
+        }
+    },
+    "success": true,
+    "total": 6,
+    "code": 206
+}
+```
+
+# Membatalkan transaksi
+| Type   | Endpoint                                 |
+|--------|------------------------------------------|
+| DELETE | localhost:8000/api/transaction/{id}      | 
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
+
+### Sample Response
+```
+{
+    "data": {
+        "id": "order-6-3-1655451787",
+        "event_id": 3,
+        "amount": 1,
+        "total_price": "311440",
+        "status": "cancelled",
+        "payment_method": "indomaret",
+        "payment_code": "926537065370",
+        "expired_at": "18-06-2022 07:43",
+        "ticket_schedule": [
+            "11-06-2022"
+        ],
+        "event": {
+            "id": 3,
+            "name": "Iste quos pariatur reprehenderit doloribus voluptas.",
+            "description": "Quo repellendus quisquam ut ut voluptatibus impedit. Vitae rem modi quos et sunt eaque. Et quos voluptatem est.",
+            "price": "Rp. 311.440",
+            "schedule": "\"[\\\"1995-05-23\\\",\\\"1985-12-20\\\"]\"",
+            "location": "Reidview",
+            "location_description": "Voluptatem doloremque.",
+            "rules": "Consequatur voluptates iusto quo rerum molestiae. Dolorum sit libero voluptatem ipsum. Corrupti voluptatem ut dolores fugiat dolorum reiciendis quia.",
+            "organization": {
+                "id": 1,
+                "name": "Kemendikbud RI",
+                "slug": "kemendikbud-ri",
+                "created_at": "14-06-2022"
+            }
+        }
+    },
+    "success": true,
+    "total": 6,
+    "code": 206
+}
+```
