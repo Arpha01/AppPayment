@@ -112,6 +112,80 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
     
 ![image](https://user-images.githubusercontent.com/11209553/174118590-9fd32ae7-7b68-4981-af9f-a28f69c78ee3.png)
 
+# Mendapatkan Daftar Event
+| Type  | Endpoint                         |
+|-------|----------------------------------|
+| GET   |localhost:8000/api/events         | 
+
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
+
+### Sample Response
+```
+{
+    "data": [
+        {
+            "id": 4,
+            "name": "Pemanfaatan Data Mining pada Revolusi Industri 4.0",
+            "description": "Memanfaatkan secara maksimal prosedur data mining",
+            "price": "Rp. 50.000",
+            "schedule": "[\"11-06-2022\", \"12-06-2022\"]",
+            "location": "Tangerang Selatan",
+            "location_description": "Depan Pasar Ciputat",
+            "rules": "Mengenakan Masker dan faceshield",
+            "organization": {
+                "id": 1,
+                "name": "Kemendikbud RI",
+                "slug": "kemendikbud-ri",
+                "created_at": "14-06-2022"
+            }
+        }
+    ],
+    "links": {
+        "first": "http://localhost:8000/api/events?page=1",
+        "last": "http://localhost:8000/api/events?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000/api/events?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "path": "http://localhost:8000/api/events",
+        "per_page": 10,
+        "to": 2,
+        "total": 2
+    },
+    "success": true,
+    "total": 2,
+    "code": 206
+}
+```
+
+### Example
+![image](https://user-images.githubusercontent.com/11209553/174245636-51c2df39-599b-492e-a188-233dfb9cac83.png)
+
+
 # Membuat Event
 | Type  | Endpoint                         |
 |-------|----------------------------------|
@@ -162,3 +236,154 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 ![image](https://user-images.githubusercontent.com/11209553/174242872-098adcb4-f1f5-442a-89ca-770cb2ebfe64.png)
 ![image](https://user-images.githubusercontent.com/11209553/174242938-442e5a02-e328-4d4c-a630-891480b134d5.png)
 
+
+# Mengupdate Event 
+| Type  | Endpoint                            |
+|-------|-------------------------------------|
+| PUT   |localhost:8000/api/events/{eventid}  | 
+
+### Request Format (Body)
+| Name                 | Description                     |
+|----------------------|---------------------------------|
+| name                 | required, min 3                 |
+| description          | required, min 5                 |
+| price                | required, numeric               |
+| schedule[]           | required                        |
+| location             | required                        |
+| location_description | required                        |
+| rules                | required                        |
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
+
+### Sample Response
+```
+{
+    "data": {
+        "id": 4,
+        "name": "Contoh nama event",
+        "description": "Memanfaatkan secara maksimal prosedur data mining",
+        "price": "Rp. 50.000",
+        "schedule": "[\"11-06-2022\",\"12-06-2022\"]",
+        "location": "Tangerang Selatan",
+        "location_description": "Depan Pasar Ciputat",
+        "rules": "Mengenakan Masker dan faceshield",
+        "organization": {
+            "id": 1,
+            "name": "Kemendikbud RI",
+            "slug": "kemendikbud-ri",
+            "created_at": "14-06-2022"
+        }
+    },
+    "success": true,
+    "total": 2,
+    "code": 206
+}
+```
+
+### Example
+![image](https://user-images.githubusercontent.com/11209553/174245284-7bb3c1b5-72fb-44f5-b1dd-9f126a69b340.png)
+![image](https://user-images.githubusercontent.com/11209553/174245349-58b78708-6a46-4f01-89d9-f27f6b324238.png)
+
+
+# Menghapus Event
+| Type   | Endpoint                            |
+|--------|-------------------------------------|
+| DELETE | localhost:8000/api/events/{eventid} | 
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
+
+### Sample Response 
+```
+{
+    "success": true,
+    "code": 200
+}
+```
+
+### Example
+![image](https://user-images.githubusercontent.com/11209553/174246157-19d029c5-3526-4f02-9b22-a7f2031e190f.png)
+
+
+# Checkout Event
+Berikut adalah bagian checkout tiket event
+
+| Type  | Endpoint                            |
+|-------|-------------------------------------|
+| POST  |localhost:8000/api/checkout          |
+
+### Request Format (Body)
+| Name                 | Description                                           |
+|----------------------|-------------------------------------------------------|
+| event_id             | required, numeric, exists                             |
+| amount               | required, numeric                                     |
+| payment_method       | required, enum:bni,bca,bri,indomaret,alfamart,gopay   |
+| ticket_schedule[]    | required                                              |
+
+### Headers
+| Key            | Value                           |
+|----------------|---------------------------------|
+| Authorization  | Bearer tokendisini              |
+
+### Sample Response 
+```
+{
+    "data": {
+        "id": "order-5-3-1655450605",
+        "event_id": "3",
+        "amount": "1",
+        "total_price": 311440,
+        "status": "pending",
+        "payment_method": "alfamart",
+        "payment_code": "5037264694177285",
+        "expired_at": "18-06-2022 07:23",
+        "ticket_schedule": [
+            "1985-12-20"
+        ],
+        "event": {
+            "id": 3,
+            "name": "Iste quos pariatur reprehenderit doloribus voluptas.",
+            "description": "Quo repellendus quisquam ut ut voluptatibus impedit. Vitae rem modi quos et sunt eaque. Et quos voluptatem est.",
+            "price": "Rp. 311.440",
+            "schedule": "\"[\\\"1995-05-23\\\",\\\"1985-12-20\\\"]\"",
+            "location": "Reidview",
+            "location_description": "Voluptatem doloremque.",
+            "rules": "Consequatur voluptates iusto quo rerum molestiae. Dolorum sit libero voluptatem ipsum. Corrupti voluptatem ut dolores fugiat dolorum reiciendis quia.",
+            "organization": {
+                "id": 1,
+                "name": "Kemendikbud RI",
+                "slug": "kemendikbud-ri",
+                "created_at": "14-06-2022"
+            }
+        }
+    },
+    "success": true,
+    "total": 5,
+    "code": 206
+}
+
+```
+
+# Verifikasi atau Konfirmasi Pembayaran
+Sebelum melakukan konfirmasi atau verifikasi pembayaran ini, diharuskan terlebih dahulu untuk membayar atau menggunakan simulasi pembayaran yang disediakan oleh Midtrans sebagai berikut: 
+(Sesuaikan dengan metode pembayarannya)
+
+| Nama                          | Link                                                   |
+|-------------------------------|----------------------------                            |
+| Indomaret simulator           | https://simulator.sandbox.midtrans.com/indomaret/index |
+| Alfamart simulator            | https://simulator.sandbox.midtrans.com/alfamart/index  |
+| BCA Virtual Account simulator | https://simulator.sandbox.midtrans.com/bca/va/index    |
+| BNI Virtual Account simulator | https://simulator.sandbox.midtrans.com/bni/va/index    |
+| BRI Virtual Account simulator | https://simulator.sandbox.midtrans.com/bri/va/index    |
+
+### Cara penggunaan simulator
+Ikuti sesuai petunjuk yang tertera. Pada halaman simulator, dalam contoh ini saya menggunakan metode pembayaran Alfamart, pada payment code masukkan id yang didapat saat checkout, dalam format order-x-x-xxxxxx
+
+![image](https://user-images.githubusercontent.com/11209553/174249509-b4848e69-14fb-4298-bfc3-956eb43c9bf4.png)
+
+Lalu tekan tombol __Inquire__
