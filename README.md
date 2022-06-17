@@ -98,7 +98,7 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 |----------------|---------------------------------|
 | Authorization  | Bearer tokendisini              |
     
-### Response 
+### Sample Response 
 ```
 {
     "status": "success",
@@ -112,8 +112,7 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
     
 ![image](https://user-images.githubusercontent.com/11209553/174118590-9fd32ae7-7b68-4981-af9f-a28f69c78ee3.png)
 
-# Event
-### Membuat Event
+# Membuat Event
 | Type  | Endpoint                         |
 |-------|----------------------------------|
 | POST  |localhost:8000/api/events         | 
@@ -133,3 +132,33 @@ Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahka
 | Key            | Value                           |
 |----------------|---------------------------------|
 | Authorization  | Bearer tokendisini              |
+
+### Sample Response
+```
+{
+    "data": {
+        "id": 4,
+        "name": "Contoh nama event",
+        "description": "deskripsi panjang event",
+        "price": "Rp. 40.000",
+        "schedule": "[\"11-06-2022\",\"12-07-2022\"]",
+        "location": "Tangerang Selatan",
+        "location_description": "Depan Pasar Ciputat",
+        "rules": "Mengenakan Masker",
+        "organization": {
+            "id": 1,
+            "name": "Kemendikbud RI",
+            "slug": "kemendikbud-ri",
+            "created_at": "14-06-2022"
+        }
+    },
+    "success": true,
+    "total": 2,
+    "code": 206
+}
+```
+
+### Example
+![image](https://user-images.githubusercontent.com/11209553/174242872-098adcb4-f1f5-442a-89ca-770cb2ebfe64.png)
+![image](https://user-images.githubusercontent.com/11209553/174242938-442e5a02-e328-4d4c-a630-891480b134d5.png)
+
