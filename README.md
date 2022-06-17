@@ -1,5 +1,5 @@
-### Halo 👋 Selamat Datang di Repository Payment Gateway Saya.
-
+# AppPayment
+Halo 👋 Selamat Datang di Repository Payment Gateway Saya.
 AppPayment adalah sebuah implementasi dan integrasi yang dibangun menggunakan Laravel 9 dalam bentuk API.
 
 #### Tools yang digunakan dalam pengembangan
@@ -58,20 +58,19 @@ Berikut adalah email dan password default untuk melakukan login pada API
 |kemendikbud@test.com  | test123          | User organisasi |
 
 
-
-# Uji Autentikasi
-### Login
+# Login
 | Type  | Endpoint                        |
 |-------|---------------------------------|
 | POST  |localhost:8000/api/login         |
 
-Request Format (Body)
+### Request Format (Body)
 | Name     | Description                     |
 |----------|---------------------------------|
 | email    | required                        |
 | password | required                        |
 
-Response 
+### Sample Response
+Berikut adalah contoh response yang akan didapatkan jika login berhasil, silahkan simpan *access_token* pada header, untuk tipe authorization pilih *Bearer*. Token tersebut digunakan untuk mengakses fitur yang membutuhkan login.
 ```
 {
     "status": "success",
@@ -85,21 +84,21 @@ Response
 }
 ```
 
-Example
+### Contoh
 
 ![image](https://user-images.githubusercontent.com/11209553/174108275-dc1c1b8e-9de3-4f6c-895f-399900147e21.png)
 
-### Logout
+# Logout
 | Type  | Endpoint                        |
 |-------|---------------------------------|
 | POST  | localhost:8000/api/logout       |
 
-Headers 
+### Headers 
 | Key            | Value                           |
 |----------------|---------------------------------|
 | Authorization  | Bearer masukkantoken            |
     
-Response 
+### Response 
 ```
 {
     "status": "success",
@@ -109,9 +108,6 @@ Response
 }
 ```
     
-Example
+### Example
     
 ![image](https://user-images.githubusercontent.com/11209553/174118590-9fd32ae7-7b68-4981-af9f-a28f69c78ee3.png)
-
-
-# Uji Kelola Event
