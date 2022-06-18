@@ -419,9 +419,9 @@ Sebelum melakukan konfirmasi atau verifikasi pembayaran ini, diharuskan terlebih
 ### Cara penggunaan simulator
 1. Ikuti sesuai petunjuk yang tertera. Pada halaman simulator, dalam contoh ini saya menggunakan metode pembayaran Indomaret, pada kolom payment code masukkan payment code yang didapat saat checkout.
 2. Lalu tekan tombol __Inquire__
-![image](https://user-images.githubusercontent.com/11209553/174251595-6333211a-c01a-4229-aced-661e7afd6bb8.png)
+![image](https://user-images.githubusercontent.com/11209553/174434363-321ca2d7-64d0-4e6a-ad52-43d1ab69d401.png)
 3. Setelah itu akan muncul detail tiket event yang dibeli, klik tombol __Pay__
-![image](https://user-images.githubusercontent.com/11209553/174251824-a6623d98-b8e7-4c00-a9f3-8aa874fb76aa.png)
+![image](https://user-images.githubusercontent.com/11209553/174434374-3e8892d0-3cd0-471b-8cf8-97fb89ad7ac4.png)
 4. Akan muncul message success transaction. lalu lakukkan konfirmasi pembayaran pada API
 
 
