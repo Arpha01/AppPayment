@@ -428,7 +428,7 @@ Sebelum melakukan konfirmasi atau verifikasi pembayaran ini, diharuskan terlebih
 
 | Type  | Endpoint                                |
 |-------|-----------------------------------------|
-| POST  |localhost:8000/api/payment/verify/{id}   |
+| GET   |localhost:8000/api/payment/verify/{id}   |
 
 Ket : 
 __id__ diisi dengan id yang didapat pada saat checkout, dalam format order-x-x-xxxxxx, contoh `localhost:8000/api/payment/verify/order-6-3-1655451787`
