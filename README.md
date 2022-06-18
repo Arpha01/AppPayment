@@ -346,7 +346,7 @@ Pada event_id diharuskan sesuai dengan id event yang ada.
 | event_id             | required, numeric, exists                             |
 | amount               | required, numeric                                     |
 | payment_method       | required, enum:bni,bca,bri,indomaret,alfamart,gopay   |
-| ticket_schedule[]    | required                                              |
+| ticket_schedules[]    | required                                              |
 
 ### Headers
 | Key            | Value                           |
