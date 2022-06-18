@@ -478,7 +478,7 @@ Berikut adalah contoh response yang akan didapatkan jika verifikasi pembayaran s
 }
 ```
 
-Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi _paid_ jika dalam kondisi sudah dibayar atau menggunakan simulator.
+Dalam response tersebut, akan terlihat bahwa status akan berubah menjadi __paid__ jika dalam kondisi sudah dibayar atau menggunakan simulator.
 
 ### Example
 Berikut adalah contoh response verifikasi pembayaran menggunakan aplikasi postman.
