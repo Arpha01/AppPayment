@@ -1,6 +1,6 @@
 # AppPayment
 Halo 👋 Selamat Datang di Repository Payment Gateway Saya.
-AppPayment adalah sebuah implementasi dan integrasi yang dibangun menggunakan Laravel 9 dalam bentuk API.
+AppPayment adalah sebuah implementasi dan integrasi payment gateway yang dibangun menggunakan Laravel 9 dalam bentuk API.
 
 #### Tools yang digunakan dalam pengembangan
 
