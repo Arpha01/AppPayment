@@ -362,36 +362,36 @@ Berikut adalah contoh response yang akan didapatkan jika checkout tiket berhasil
 ```
 {
     "data": {
-        "id": "order-6-3-1655451787",
-        "event_id": "3",
-        "amount": "1",
-        "total_price": 311440,
+        "id": "order-1-1-1655548920",
+        "event_id": "1",
+        "amount": "2",
+        "total_price": 80000,
         "status": "pending",
         "payment_method": "indomaret",
-        "payment_code": "926537065370",
-        "expired_at": "18-06-2022 07:43",
+        "payment_code": "052179521795",
+        "expired_at": "19-06-2022 10:42",
         "ticket_schedule": [
             "11-06-2022"
         ],
         "event": {
-            "id": 3,
-            "name": "Iste quos pariatur reprehenderit doloribus voluptas.",
-            "description": "Quo repellendus quisquam ut ut voluptatibus impedit. Vitae rem modi quos et sunt eaque. Et quos voluptatem est.",
-            "price": "Rp. 311.440",
-            "schedule": "\"[\\\"1995-05-23\\\",\\\"1985-12-20\\\"]\"",
-            "location": "Reidview",
-            "location_description": "Voluptatem doloremque.",
-            "rules": "Consequatur voluptates iusto quo rerum molestiae. Dolorum sit libero voluptatem ipsum. Corrupti voluptatem ut dolores fugiat dolorum reiciendis quia.",
+            "id": 1,
+            "name": "Pemanfaatan Data Mining pada Revolusi Industri 4.0",
+            "description": "Memanfaatkan secara maksimal prosedur data mining",
+            "price": "Rp. 40.000",
+            "schedule": "[\"11-06-2022\", \"12-07-2022\"]",
+            "location": "Tangerang Selatan",
+            "location_description": "Depan Pasar Ciputat",
+            "rules": "Mengenakan Masker",
             "organization": {
                 "id": 1,
                 "name": "Kemendikbud RI",
                 "slug": "kemendikbud-ri",
-                "created_at": "14-06-2022"
+                "created_at": "18-06-2022"
             }
         }
     },
     "success": true,
-    "total": 6,
+    "total": 1,
     "code": 206
 }
 ```
@@ -401,7 +401,7 @@ Setelah berhasil checkout, transaksi akan terbuat namun pembayaran masih dalam s
 ### Example
 Berikut adalah contoh response checkout menggunakan aplikasi postman.
 
-![image](https://user-images.githubusercontent.com/11209553/174250895-0a54ed45-d460-48b2-a72c-f44a5f41e184.png)
+![image](https://user-images.githubusercontent.com/11209553/174434178-eeee9928-c6d6-40e0-b1f7-949e2938ee09.png)
 
 
 # Verifikasi atau Konfirmasi Pembayaran
