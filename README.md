@@ -4,6 +4,8 @@ AppPayment adalah sebuah implementasi dan integrasi payment gateway yang dibangu
 
 Creator: Mohammad Arfan Maulana
 
+API ini tidak hanya mencakup payment gateway checkout dan pembayaran saja, namun juga mencakup pengelolaan event (membuat, mengupdate, menghapus, melihat daftar event), dan juga kelola transaksi (membatalkan, melihat daftar transaksi)
+
 #### Tools yang digunakan dalam pengembangan
 
 | Tools                                | Version       |
